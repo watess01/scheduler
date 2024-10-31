@@ -1,4 +1,5 @@
 import { Event } from "./Event";
+import { ScheduleSorter } from "../helpers/ScheduleSorter";
 
 export class Scheduler {
   // contains ordered list of customers and breaks
@@ -11,16 +12,8 @@ export class Scheduler {
     this.schedule.push(action);
   }
 
-  private sortSchedule() {
-    this.schedule.sort((a, b) => {
-      if (a.startTime < b.startTime) {
-        return -1;
-      }
-      if (a.startTime > b.startTime) {
-        return 1;
-      }
-      return 0;
-    });
+  private sortSchedule(): void {
+    this.schedule = ScheduleSorter.sort(this.schedule);
   }
 
   public printSchedule() {

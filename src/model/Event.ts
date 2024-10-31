@@ -13,7 +13,6 @@ const actionTypeTimeSeconds = {
 
 // type for MyTime so it can be changed later
 export type MyTime = string;
-export type MyCustomer = string;
 
 export interface IEvent {
   actionType: EventType;
@@ -28,7 +27,7 @@ export class Event implements IEvent {
     this.actionType = actionType;
   }
 
-  private getEventDescription(event:EventType): string {
+  public static getEventDescription(event:EventType): string {
     switch (event) {
       case EventType.PrepareSandwich:
         return "Prepare sandwhich";
@@ -43,6 +42,6 @@ export class Event implements IEvent {
 
   public toString(): string {
     // format 00:00 Prepare sandwhich for Tim
-    return `${this.startTime} ${this.getEventDescription(this.actionType)}`;
+    return `${this.startTime} ${Event.getEventDescription(this.actionType)}`;
   }
 }
