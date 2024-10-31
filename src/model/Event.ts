@@ -27,6 +27,7 @@ export class Event implements IEvent {
     this.actionType = actionType;
   }
 
+  // this should not be here, eg class EventService
   public static getEventDescription(event:EventType): string {
     switch (event) {
       case EventType.PrepareSandwich:

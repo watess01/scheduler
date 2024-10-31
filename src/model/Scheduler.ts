@@ -1,4 +1,5 @@
 import { Event } from "./Event";
+// relative paths should be replaced with alias
 import { ScheduleSorter } from "../helpers/ScheduleSorter";
 
 export class Scheduler {
